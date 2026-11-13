@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self'; connect-src https://*.supabase.co; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<title>Crafty Crew Admin</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">Crafty Crew Admin <span id="project" class="badge"></span></div>
+  <nav id="nav" hidden>
+    <a href="#reports" data-nav="reports">Reports</a>
+    <a href="#log" data-nav="log">Log</a>
+    <button type="button" id="signout" class="link">Sign out</button>
+  </nav>
+</header>
+
+<main id="app">
+  <section id="login" hidden>
+    <h1>Sign in</h1>
+    <p class="muted">Admins only. We email you a one-time code.</p>
+    <form id="email-form" class="stack">
+      <label for="email">Email</label>
+      <input id="email" type="email" autocomplete="email" inputmode="email" required>
+      <button type="submit" class="primary">Send code</button>
+    </form>
+    <form id="code-form" class="stack" hidden>
+      <label for="code">Code from the email</label>
+      <input id="code" type="text" autocomplete="one-time-code" inputmode="numeric" pattern="[0-9]{6,10}" maxlength="10" required>
+      <button type="submit" class="primary">Sign in</button>
+      <button type="button" id="code-back" class="link">Use another email</button>
+    </form>
+  </section>
+
+  <section id="denied" hidden>
+    <h1>Not allowed</h1>
+    <p id="denied-msg" class="muted"></p>
+    <button type="button" id="denied-signout" class="primary">Sign out</button>
+  </section>
+
+  <section id="reports" hidden>
+    <div class="row between">
+      <h1>Reports</h1>
+      <button type="button" id="reports-refresh" class="small">Refresh</button>
+    </div>
+    <div class="tabs" id="status-tabs" role="tablist">
+      <button type="button" data-status="open" role="tab">Open</button>
+      <button type="button" data-status="reviewed" role="tab">Reviewed</button>
+      <button type="button" data-status="actioned" role="tab">Actioned</button>
+      <button type="button" data-status="all" role="tab">All</button>
+    </div>
+    <div id="reports-list" class="list"></div>
+    <button type="button" id="reports-more" class="small wide" hidden>Older</button>
+  </section>
+
+  <section id="player" hidden>
+    <button type="button" id="player-back" class="link">&larr; Back</button>
+    <div id="player-body"></div>
+  </section>
+
+  <section id="log" hidden>
+    <div class="row between">
+      <h1>Action log</h1>
+      <label class="check"><input type="checkbox" id="log-views"> Show views</label>
+    </div>
+    <div id="log-list" class="list"></div>
+    <button type="button" id="log-more" class="small wide" hidden>Older</button>
+  </section>
+
+  <p id="status" class="status" role="status" aria-live="polite"></p>
+</main>
+
+<dialog id="confirm">
+  <form method="dialog" class="stack">
+    <h2 id="confirm-title"></h2>
+    <p id="confirm-text"></p>
+    <div id="confirm-fields" class="stack"></div>
+    <div class="row end">
+      <button value="cancel" type="submit" class="small">Cancel</button>
+      <button value="ok" type="submit" id="confirm-ok" class="primary">Confirm</button>
+    </div>
+  </form>
+</dialog>
+
+<!-- supabase-js, pinned (exact version, checked hash) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.js"
+        integrity="sha384-rwykjmWNwVxboyFmvK9OXN0wj9hnMHA2aAHtits54DuACyCq0M2PrSNxhRb+hvXT"
+        crossorigin="anonymous"></script>
+<script src="admin.js"></script>
+</body>
+</html>

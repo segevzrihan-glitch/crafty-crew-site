@@ -25,7 +25,7 @@
 <body>
 <main>
 <h1>Crafty Crew Privacy Policy</h1>
-<p class="muted">Effective date: 11 November 2026</p>
+<p class="muted">Effective date: 13 November 2026</p>
 
 <p>Crafty Crew ("the game", "we", "us") is a mobile game made by Segev Zrihan Ziv. This policy explains what
 information the game collects, why, who else handles it, how long we keep it and what you can do about it.
@@ -35,8 +35,10 @@ in the game.</p>
 <h2>The short version</h2>
 <ul>
   <li>You can play without giving us your name or email. The first time you open the game, it creates an anonymous
-    account for your device so your progress is saved.</li>
-  <li>If you create an account, we keep your email and a username so you can log in on another device and add friends.</li>
+    guest account for your device straight away, while the sign-in screen is showing, so your progress is saved
+    whether you sign in or play as a guest.</li>
+  <li>If you create an account, with your email or by signing in with Google or Apple, we keep your email and a
+    username so you can sign in on another device and add friends.</li>
   <li>The game currently has no ads, no analytics or tracking tools, and no in-app purchases. It does send us error
     and crash reports so we can fix bugs; they aren't linked to you or your account. We don't sell your information.</li>
   <li>You can delete your account and its data from inside the game: Settings &gt; Delete Account.</li>
@@ -51,6 +53,16 @@ in the game.</p>
   <tr><td>Email address and password. The password is handled by our sign-in provider (Supabase) and isn't stored in readable form</td>
     <td>Only if you create an account or log in</td>
     <td>To log you in, and to email you a one-time code that confirms your address</td></tr>
+  <tr><td>If you sign in with Google: your email address and your Google account ID. Google also sends the name and
+    profile photo on your Google account; we don't keep them (they're removed before your account is saved)</td>
+    <td>Only if you tap Sign in with Google</td>
+    <td>To sign you in, and to recognise your account on another device</td></tr>
+  <tr><td>If you sign in with Apple: your Apple account ID and an email address: your real one, or, if you choose
+    Hide My Email, a private relay address from Apple that forwards to you. We don't ask Apple for your name. We also
+    keep a token from Apple that lets us end Crafty Crew's access to your Apple ID when you delete your account</td>
+    <td>Only if you tap Sign in with Apple</td>
+    <td>To sign you in, to recognise your account on another device, and to end the game's access when you delete
+      your account</td></tr>
   <tr><td>Display name (one is made for you; you can change it), username and friend code</td><td>When the account is created, or when you change them</td>
     <td>To identify you to other players: on the leaderboard, in friend lists and requests, and in game rooms</td></tr>
   <tr><td>Game progress: level, XP, cans, gems, unlocked characters, your selected character and the CAN ROAD rewards you've claimed</td>
@@ -72,6 +84,11 @@ in the game.</p>
     <td>When an error happens, sent when you next open the game or are on its menus</td><td>To find and fix bugs. Reports don't include your account ID, name, email or device model, and the game removes anything that looks like a name, email address or sign-in token from the error text before sending it</td></tr>
 </table>
 </div>
+<p>One email address belongs to one account. If you sign in with Google or Apple and that email (as confirmed by
+Google or Apple) already has a Crafty Crew account, you're signed in to that account. If you use Apple's Hide My
+Email, your account stays separate from any account made with your own email. If you were playing as a guest, your
+progress moves to the account you sign in with; if that account already exists, the game asks you which progress to
+keep before anything changes.</p>
 <p>Some things stay on your device only: sound, music and vibration settings, aim assist, favourite characters,
 tutorial progress, and a copy of your progress so the game works offline.</p>
 <p>We don't collect your location, contacts, photos, camera, microphone, advertising identifier or payment details.</p>
@@ -84,7 +101,8 @@ tutorial progress, and a copy of your progress so the game works offline.</p>
   <tr><td><strong>Supabase</strong></td>
     <td>Backend and hosting: our database, sign-in system, the small server functions that check match results and
       award rewards, and the one-time email code</td>
-    <td>Accounts (anonymous ID, email and password if you create an account), display name and username, progress,
+    <td>Accounts (anonymous ID, email and password if you create an account, your Google or Apple account ID and the
+      Apple token if you sign in with them), display name and username, progress,
       match results, friends, blocks and player reports, error and crash reports, and your IP address while
       connected</td>
     <td><a href="https://supabase.com/privacy">supabase.com/privacy</a></td></tr>
@@ -93,10 +111,21 @@ tutorial progress, and a copy of your progress so the game works offline.</p>
     <td>Your IP address while you play online, and a one-time join ticket (described below). Match server logs:
       room codes, display names of players joining and leaving, and match start and end</td>
     <td><a href="https://www.hetzner.com/legal/privacy-policy">hetzner.com/legal/privacy-policy</a></td></tr>
+  <tr><td><strong>Google</strong></td>
+    <td>Sign in with Google (only if you choose it)</td>
+    <td>Confirms who you are and sends us your email and Google account ID (and your Google name and photo, which
+      we don't keep)</td>
+    <td><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td></tr>
+  <tr><td><strong>Apple</strong></td>
+    <td>Sign in with Apple (only if you choose it)</td>
+    <td>Confirms who you are and sends us your Apple account ID and email (or a relay address), and a token we use
+      only to end the game's access when you delete your account</td>
+    <td><a href="https://www.apple.com/legal/privacy/">apple.com/legal/privacy</a></td></tr>
 </table>
 </div>
 <p><strong>No analytics, advertising or tracking providers at this time.</strong></p>
-<p>Your information may be stored and processed outside your country, including in Germany (our match server) and wherever Supabase hosts our database.</p>
+<p>Your information may be stored and processed outside your country. Supabase hosts our database and sign-in
+system in the EU (Frankfurt, Germany, region eu-central-1), and our match server is in Germany.</p>
 <p>To start an online match, the game gets a one-time join ticket from Supabase and gives it to the match server.
 The ticket carries your account ID, display name, level, whether you're a guest, your unlocked characters and the
 players you've blocked, and it expires after a minute. Your sign-in token is never sent to the match server. After
@@ -131,6 +160,9 @@ Ads, depending on the device).</p>
 <h2>How long we keep it</h2>
 <ul>
   <li>Your account, progress, match results, friends and blocks are kept until you delete your account.</li>
+  <li>What we keep from Google or Apple (your email and account ID) stays with your account until you delete it.
+    The Apple token is deleted when your account is deleted. If Apple can't be reached at that moment, we try again
+    every day and delete the token as soon as Apple confirms.</li>
   <li>Reports are kept for review. If you delete your account, reports you sent stay, but without your ID.
     Reports about you are kept for 90 days after you delete your account, with only the name you had, the reason
     and the dates (no IDs), and are then deleted automatically.</li>
@@ -143,7 +175,10 @@ Ads, depending on the device).</p>
 <h2>Your rights / delete your data</h2>
 <p>In the game, go to <strong>Settings &gt; Delete Account</strong> and confirm twice. This permanently deletes your
 account from our servers, together with your profile, progress, characters, match history, friends and requests,
-invites and blocks. Reports about you are kept as described above. It can't be undone. Your device then starts over
+invites and blocks. Reports about you are kept as described above. It can't be undone. If you signed in with Apple, deleting your account also ends Crafty Crew's access to your Apple
+ID (you can check in your iPhone's Settings &gt; your name &gt; Sign-In &amp; Security &gt; Sign in with Apple). If
+you signed in with Google, you can also remove the game's access at
+<a href="https://myaccount.google.com/connections">myaccount.google.com/connections</a>. Your device then starts over
 as a new guest.</p>
 <p>You can also ask us to delete your data by writing to us (Settings &gt; Contact Us opens an email with your
 player ID filled in), or at

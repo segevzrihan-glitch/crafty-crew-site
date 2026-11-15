@@ -25,7 +25,7 @@
 <body>
 <main>
 <h1>Crafty Crew Privacy Policy</h1>
-<p class="muted">Effective date: 13 November 2026</p>
+<p class="muted">Effective date: 15 November 2026</p>
 
 <p>Crafty Crew ("the game", "we", "us") is a mobile game made by Segev Zrihan Ziv. This policy explains what
 information the game collects, why, who else handles it, how long we keep it and what you can do about it.
@@ -39,8 +39,11 @@ in the game.</p>
     whether you sign in or play as a guest.</li>
   <li>If you create an account, with your email or by signing in with Google or Apple, we keep your email and a
     username so you can sign in on another device and add friends.</li>
-  <li>The game currently has no ads, no analytics or tracking tools, and no in-app purchases. It does send us error
-    and crash reports so we can fix bugs; they aren't linked to you or your account. We don't sell your information.</li>
+  <li>The game has no ads and no in-app purchases. It uses <strong>Google Analytics for Firebase</strong> to understand,
+    without your name or email, how the game is played (for example how far players get in the tutorial and how long
+    matches last), and it sends us error and crash reports so we can fix bugs. You can turn analytics off at any time
+    in <strong>Settings &gt; Share anonymous usage data</strong>. We don't use your advertising identifier, we don't
+    track you across other companies' apps or websites, and we don't sell your information.</li>
   <li>You can delete your account and its data from inside the game: Settings &gt; Delete Account.</li>
 </ul>
 
@@ -63,7 +66,7 @@ in the game.</p>
     <td>Only if you tap Sign in with Apple</td>
     <td>To sign you in, to recognise your account on another device, and to end the game's access when you delete
       your account</td></tr>
-  <tr><td>Display name (one is made for you; you can change it), username and friend code</td><td>When the account is created, or when you change them</td>
+  <tr><td>Display name (one is made for you; you can change it), username, friend code, and your avatar (a picture of one of the game's characters that you choose; no photos)</td><td>When the account is created, or when you change them</td>
     <td>To identify you to other players: on the leaderboard, in friend lists and requests, and in game rooms</td></tr>
   <tr><td>Game progress: level, XP, cans, gems, unlocked characters, your selected character and the CAN ROAD rewards you've claimed</td>
     <td>As you play</td><td>To save and restore your progress</td></tr>
@@ -82,6 +85,20 @@ in the game.</p>
     <td>When you play online</td><td>To keep the match server running and fix problems</td></tr>
   <tr><td>Error and crash reports: the game's build number, Android or iOS and its version, the error text and where in the game's code it happened, how many times it happened, whether the last session ended unexpectedly, and a random ID made for each launch that isn't kept on your device</td>
     <td>When an error happens, sent when you next open the game or are on its menus</td><td>To find and fix bugs. Reports don't include your account ID, name, email or device model, and the game removes anything that looks like a name, email address or sign-in token from the error text before sending it</td></tr>
+  <tr><td>Usage data (Google Analytics for Firebase): a random ID for this installation of the game (the "app
+    instance ID", not your account ID); in-game events such as opening the game, starting and finishing the tutorial,
+    matches started and finished (mode, place, share of the map painted, length, eliminations), level ups, missions and
+    CAN ROAD rewards claimed, shop screens and items viewed, items bought with gems, the sign-in method (Google, Apple,
+    email or guest) and connection problems; the game's build number, your platform and a level range; and what
+    Firebase collects itself: device model, operating system and version, app version, language, and an approximate
+    country or region derived from your IP address</td>
+    <td>While you play, unless you turn it off in Settings</td>
+    <td>To understand how the game is played and improve it. Never your name, email, username, account ID, friends or
+      what other players see</td></tr>
+  <tr><td>Moderation records: if we act on a report, the action (for example a reset display name or a temporary or
+    permanent ban), the reason category, the dates and which moderator did it</td>
+    <td>Only if a moderator acts on your account</td>
+    <td>To enforce our rules and handle questions about a decision</td></tr>
 </table>
 </div>
 <p>One email address belongs to one account. If you sign in with Google or Apple and that email (as confirmed by
@@ -91,7 +108,8 @@ progress moves to the account you sign in with; if that account already exists, 
 keep before anything changes.</p>
 <p>Some things stay on your device only: sound, music and vibration settings, aim assist, favourite characters,
 tutorial progress, and a copy of your progress so the game works offline.</p>
-<p>We don't collect your location, contacts, photos, camera, microphone, advertising identifier or payment details.</p>
+<p>We don't collect your precise location, contacts, photos, camera, microphone, advertising identifier (Apple's IDFA
+or Google's Advertising ID) or payment details.</p>
 
 <h2>Third-party services</h2>
 <p>These companies handle information for us to run the game. They may only use it to provide their service to us.</p>
@@ -121,9 +139,20 @@ tutorial progress, and a copy of your progress so the game works offline.</p>
     <td>Confirms who you are and sends us your Apple account ID and email (or a relay address), and a token we use
       only to end the game's access when you delete your account</td>
     <td><a href="https://www.apple.com/legal/privacy/">apple.com/legal/privacy</a></td></tr>
+  <tr><td><strong>Google (Firebase)</strong></td>
+    <td>Google Analytics for Firebase: usage statistics, only while "Share anonymous usage data" is on</td>
+    <td>The app instance ID, in-game events, device model, operating system and app version, language, and an
+      approximate region from your IP address. Google Signals, ads personalization and advertising features are turned
+      off and no advertising identifier is collected. On iPhone, Firebase also asks Apple for an Apple Search Ads
+      attribution token (Apple's AdServices framework), which only says whether the game was installed from an ad in
+      the App Store; it uses no advertising identifier, doesn't track you across apps and needs no tracking permission.
+      Kept for 14 months</td>
+    <td><a href="https://policies.google.com/privacy">policies.google.com/privacy</a>,
+      <a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td></tr>
 </table>
 </div>
-<p><strong>No analytics, advertising or tracking providers at this time.</strong></p>
+<p><strong>No advertising or tracking providers.</strong> Google Analytics for Firebase (above) is used for analytics
+only.</p>
 <p>Your information may be stored and processed outside your country. Supabase hosts our database and sign-in
 system in the EU (Frankfurt, Germany, region eu-central-1), and our match server is in Germany.</p>
 <p>To start an online match, the game gets a one-time join ticket from Supabase and gives it to the match server.
@@ -131,34 +160,38 @@ The ticket carries your account ID, display name, level, whether you're a guest,
 players you've blocked, and it expires after a minute. Your sign-in token is never sent to the match server. After
 the match, the server sends the results to Supabase.</p>
 <p><strong>Apple and Google</strong> distribute the game through their app stores, under their own privacy policies.</p>
-<p>Other players can see your display name, username, level and selected character. Your friends can also see
+<p>Other players can see your display name, username, avatar, level and selected character. Your friends can also see
 whether you're online. Anyone who opens the leaderboard sees the display name, level and XP of the top players.</p>
 <p>If you tap INVITE ON WHATSAPP, the game opens WhatsApp with a message you can choose to send. We don't send
 anything to WhatsApp ourselves.</p>
 <p>We may disclose information if the law requires it, or to protect players or the game from abuse.</p>
 
 <h2>Analytics, advertising and tracking</h2>
-<p><strong>The game currently has no ads, no analytics or tracking tools.</strong> This section explains what would
-change if we add them in the future, so you know what to expect. We will update this policy and the app's privacy
-details in the store before any such version is released.</p>
-<p><strong>What such tools could collect:</strong> device identifiers and advertising identifiers (such as Apple's
-IDFA or Google's Advertising ID), in-app events (for example, matches played, screens opened and purchases), your
-approximate location derived from your IP address (country or city level, never precise GPS location), and crash
-data.</p>
-<p><strong>Why:</strong> to measure how the game is played and improve it, and to show ads and measure how they
-perform.</p>
-<p><strong>Your consent:</strong> on iOS, the game will ask your permission through Apple's App Tracking Transparency
-prompt before any tracking across other companies' apps and websites, and will not track you if you decline. On
-Android, we will follow Google Play's policies, including its rules on the Advertising ID and on ads in games.
-Where the law requires your consent (for example, in the EU or the UK), we will ask for it first.</p>
-<p><strong>How to opt out:</strong> on iOS, turn off "Allow Apps to Request to Track" or tracking for Crafty Crew in
-Settings &gt; Privacy &amp; Security &gt; Tracking. On Android, delete or reset your Advertising ID, or turn off ads
-personalization, in your device's Google settings (Settings &gt; Google &gt; Ads, or Settings &gt; Privacy &gt;
-Ads, depending on the device).</p>
+<p><strong>Analytics.</strong> The game uses Google Analytics for Firebase to measure how the game is played (see
+"What we collect"). It identifies an installation of the game only by a random app instance ID, which isn't linked to
+your account, name or email. We have turned off Google Signals and ads personalization, the game doesn't collect your
+advertising identifier, and analytics data isn't used for advertising or shared with data brokers. Google keeps it for
+14 months.</p>
+<p><strong>Apple Search Ads attribution (iPhone).</strong> Firebase uses Apple's AdServices framework to learn whether
+the game was installed after an Apple Search Ads ad in the App Store. Apple provides this without the advertising
+identifier (IDFA) and without tracking you across other companies' apps or websites, so the game doesn't show Apple's
+App Tracking Transparency prompt.</p>
+<p><strong>Turn it off:</strong> Settings &gt; Share anonymous usage data. When it's off, the game stops sending
+analytics and resets the app instance ID on your device. Turning it back on starts with a new one.</p>
+<p><strong>Where the game is available:</strong> Crafty Crew is currently offered in Israel, the United States and
+Canada. If we make it available in the EU or the UK, we will first add a consent screen (Google's User Messaging
+Platform) that asks for your permission for analytics and, if the game has ads by then, for ads, before any of it
+starts.</p>
+<p><strong>Ads.</strong> The game has no ads today. If we add ads in a future version, we will update this policy and
+the app's privacy details in the store first, and ask for your permission where the law or the store requires it (for
+example Apple's App Tracking Transparency prompt on iOS before any tracking).</p>
 <p><strong>We will never sell your personal data.</strong></p>
 
 <h2>How long we keep it</h2>
 <ul>
+  <li>Analytics data in Google Analytics is kept for 14 months, then deleted automatically by Google.</li>
+  <li>Bans and name locks are kept while the account exists and are deleted with it. Our moderators' log of the
+    actions taken stays as our record of moderation decisions, without your account ID once the account is deleted.</li>
   <li>Your account, progress, match results, friends and blocks are kept until you delete your account.</li>
   <li>What we keep from Google or Apple (your email and account ID) stays with your account until you delete it.
     The Apple token is deleted when your account is deleted. If Apple can't be reached at that moment, we try again
@@ -191,10 +224,11 @@ correct it, receive a copy, delete it, or object to how we use it. Write to us a
 If you live in the EU, the UK or Israel, you can also complain to your data protection authority.</p>
 <p>Where the GDPR applies, we use your information because it's needed to provide the game you asked for (account,
 progress, matches, friends), and for our legitimate interest in keeping the game safe and working (server logs,
-error and crash reports, blocks and reports).</p>
+error and crash reports, blocks and reports). Analytics is based on our legitimate interest in understanding and
+improving the game; you can object at any time by turning it off in Settings.</p>
 
 <h2>Children</h2>
-<p>Crafty Crew isn't directed at children under 13 and is rated 13+. We don't knowingly collect personal information from children under 13.
+<p>Crafty Crew isn't directed at children under 13 and is intended for players 13 and older. We don't knowingly collect personal information from children under 13.
 If you believe a child under 13 has created an account, write to us and we'll delete it.</p>
 
 <h2>Security</h2>
@@ -204,8 +238,8 @@ encrypted. No system is perfectly secure, but we work to protect your informatio
 
 <h2>Changes to this policy</h2>
 <p>If we change this policy, we'll update it on this page and change the date at the top.</p>
-<p>If we add advertising, analytics or other third-party tools in the future, we will update this policy and the
-app's privacy details in the store before that version is released.</p>
+<p>If we add advertising or other third-party tools in the future, we will update this policy and the app's privacy
+details in the store before that version is released.</p>
 
 <h2>Contact</h2>
 <p>Segev Zrihan Ziv<br><a href="mailto:craftycrew196@gmail.com">craftycrew196@gmail.com</a></p>

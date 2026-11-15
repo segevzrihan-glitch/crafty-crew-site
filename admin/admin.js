@@ -9,7 +9,7 @@ const PROJECTS = {
   test: { name: "TEST", url: "https://lifozzjxwtljwvwuswic.supabase.co", key: "sb_publishable_O4cIMnKqjmQJuLyTpSKTow_caOOm4Nc" },
   live: { name: "LIVE", url: "https://hjxpswtcnxcvssyhlalc.supabase.co", key: "sb_publishable_ddmqh0CXt9p4Luyt6XOoKA_avNz-E9N" },
 };
-const ACTIVE = "test";
+const ACTIVE = "live";
 // -----------------------------------------------------------------------------------------------------------------------
 
 const P = PROJECTS[ACTIVE];

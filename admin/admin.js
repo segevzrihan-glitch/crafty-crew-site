@@ -279,6 +279,7 @@ async function loadPlayer(id, report) {
   const banLine = ban
     ? el("span", { class: "chip bad", text: ban.permanent ? "banned for good" : "banned until " + when(ban.until) })
     : el("span", { class: "chip good", text: "not banned" });
+  const hasGems = j.gems !== undefined && j.gems !== null;
   const lockLine = lock ? el("span", { class: "chip warn", text: lock.permanent ? "name locked for good" : "name locked until " + when(lock.until) }) : null;
 
   $("player-body").replaceChildren(
@@ -295,6 +296,11 @@ async function loadPlayer(id, report) {
       el("dt", { text: "Matches" }), el("dd", { text: j.matches.total + " total, " + j.matches.last_7_days + " in 7 days (last " + when(j.matches.last_at) + ")" }),
       el("dt", { text: "Reports" }), el("dd", { text: j.reports_about_count + " about, " + j.reports_by_count + " sent" }),
       el("dt", { text: "Blocked by" }), el("dd", { text: j.blocked_by_count + " player" + (j.blocked_by_count == 1 ? "" : "s") }),
+      // Gems and purchases: migration 0033 (build 41). A server without it sends neither, and the page shows nothing for them.
+      hasGems ? el("dt", { text: "Gems" }) : null,
+      hasGems ? el("dd", { text: String(j.gems) }) : null,
+      hasGems ? el("dt", { text: "Gems owed" }) : null,
+      hasGems ? el("dd", { text: String(j.gems_owed) + (j.gems_owed > 0 ? " (refunded after spending: earnings pay it off; gem spending blocked)" : "") }) : null,
       j.replaced_names ? el("dt", { text: "Earlier name" }) : null,
       j.replaced_names ? el("dd", { text: (j.replaced_names.old_display_name || "-") + (j.replaced_names.old_username ? " (@" + j.replaced_names.old_username + ")" : "") + ", reset " + when(j.replaced_names.replaced_at) }) : null,
       el("dt", { text: "Player id" }), el("dd", { class: "mono", text: p.id })),
@@ -315,8 +321,26 @@ async function loadPlayer(id, report) {
       el("div", {}, el("span", { class: "chip" + (b.active ? " bad" : ""), text: b.active ? "active" : (b.lifted_at ? "lifted" : "ended") }),
         el("span", { class: "chip", text: b.kind === "perm" ? "permanent" : "temp" }), el("span", { class: "chip", text: REASONS[b.reason] || b.reason })),
       el("div", { class: "meta", text: when(b.created_at) + (b.kind === "temp" ? " → " + when(b.until) : "") + (b.lifted_at ? " · lifted " + when(b.lifted_at) : "") }),
-      b.note ? el("div", { text: "Note: " + b.note }) : null)));
+      b.note ? el("div", { text: "Note: " + b.note }) : null)),
+    hasGems ? el("h2", { text: "Purchases (App Store, newest first, read-only)" }) : null,
+    hasGems ? list(j.purchases, purchaseCard) : null);
   show("player");
+}
+
+// One App Store purchase (read-only): date, pack, gems, status, environment.
+function purchaseCard(x) {
+  const pack = String(x.product_id || "").replace(/^com\.segev\.craftycrew\./, "");
+  const refunded = x.status === "refunded";
+  return el("div", { class: "card" },
+    el("div", {},
+      el("span", { class: "chip", text: pack }),
+      el("span", { class: "chip", text: x.gems + " gems" }),
+      el("span", { class: "chip" + (refunded ? " bad" : " good"), text: x.status }),
+      el("span", { class: "chip" + (x.environment === "Sandbox" ? " warn" : ""), text: x.environment }),
+      x.carried_from ? el("span", { class: "chip", text: "moved from a guest" }) : null),
+    el("div", { class: "meta", text: when(x.purchased_at || x.granted_at) + " · granted " + when(x.granted_at) +
+      (refunded ? " · refunded " + when(x.refunded_at) + " (" + x.refund_taken + " taken, " + x.refund_owed + " owed)" : "") }),
+    el("div", { class: "meta mono", text: "transaction " + x.transaction_id }));
 }
 
 function list(rows, card) {
